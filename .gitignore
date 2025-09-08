@@ -1,0 +1,13 @@
+# Eclipse/EGit
+.classpath
+.project
+.settings/
+bin/
+target/
+
+# Arquivos de dados locais
+data/*.data
+
+# SO
+.DS_Store
+Thumbs.db
