@@ -1,0 +1,56 @@
+@startuml
+
+class Main {
+}
+
+class Usuario {
+  - nome : String
+  - email : String
+  - telefone : String
+  + getNome() : String
+  + getEmail() : String
+  + getTelefone() : String
+}
+
+class Evento {
+  - nome : String
+  - endereco : String
+  - categoria : String
+  - horario : String
+  - descricao : String
+  - participantes : List<Usuario>
+  - eventExecutionDateTime : LocalDateTime
+  + adicionarParticipante(u:Usuario)
+  + removerParticipante(u:Usuario)
+  + toString() : String
+}
+
+class ServicoUsuario {
+  - usuarios : List<Usuario>
+  + cadastrarUsuario(nome, email, telefone) : Usuario
+  + buscarPorEmail(email:String) : Usuario
+  + listarUsuarios() : List<Usuario>
+}
+
+class ServicoEvento {
+  - eventos : List<Evento>
+  + criarEvento()
+  + listarEventos()
+  + confirmarParticipacao(usuario:Usuario)
+  + cancelarParticipacao(usuario:Usuario)
+  + mostrarEventosConfirmados(usuario:Usuario)
+  + carregarEventos()
+  + salvarEventos()
+}
+
+class GerenciadorArquivo {
+  + salvarEventos(eventos:List<Evento>)
+  + carregarEventos() : List<Evento>
+}
+
+Usuario "1" -- "N" Evento : participa
+Evento "N" -- "1" ServicoEvento : gerencia
+Usuario "N" -- "1" ServicoUsuario : cadastra
+ServicoEvento --> GerenciadorArquivo
+
+@enduml
