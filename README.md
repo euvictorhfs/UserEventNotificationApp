@@ -13,11 +13,9 @@ Projeto acadêmico em **Java (console)** para gerenciar eventos e usuários.
 ## 🚀 Como rodar
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/UserEventNotificationApp.git
+   git clone https://github.com/euvictorhfs/UserEventNotificationApp.git
 2. Execute a classe ```Main```.
 
 ## 📂 Persistência
 - Os eventos ficam salvos em data/eventos.data
 - Toda vez que o sistema é aberto, os eventos são carregados.
-
-
